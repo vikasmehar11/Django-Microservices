@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cdx$0o6-(_ppx6u1t!0z()v=+%(njf$al04@k_v1h$!b0#)crj'
+SECRET_KEY = config('django-insecure-cdx$0o6-(_ppx6u1t!0z()v=+%(njf$al04@k_v1h$!b0#)crj')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config(True)
 
 ALLOWED_HOSTS = []
 
@@ -80,11 +81,11 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangodb',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'djangouser',
-        'PASSWORD': 'Microservices@21',
+        'NAME': config('djangodb'),
+        'HOST': config('127.0.0.1'),
+        'PORT': config('3306'),
+        'USER': config('djangouser'),
+        'PASSWORD': config('Microservices@21'),
     }
 }
 
